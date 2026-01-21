@@ -101,56 +101,117 @@ renderCarousel();
 startAutoAdvance();
 
 
-// Header behavior on scroll
-const header = document.getElementById("main-header");
-const menuToggle = document.getElementById("menu-toggle");
-const mobileMenu = document.getElementById("mobile-menu");
+// Responsive Navigation Script
+document.addEventListener('DOMContentLoaded', function () {
+  const header = document.getElementById('main-header');
+  const menuToggle = document.getElementById('menu-toggle');
+  const navList = document.getElementById('nav-list');
+  const pageBody = document.body;
 
-let lastScrollY = window.scrollY;
+  if (!header || !menuToggle || !navList) return;
 
-window.addEventListener("scroll", () => {
-  const currentScrollY = window.scrollY;
+  // Initial scroll state
+  let lastScrollY = window.scrollY || 0;
 
-  // Show/hide header
-  if (currentScrollY === 0 || currentScrollY < lastScrollY) {
-    header.style.transform = "translateY(0)";
-  } else {
-    header.style.transform = "translateY(-100%)";
-    mobileMenu.classList.add("hidden");
+  // Set initial transparent state only if at very top
+  if (window.scrollY === 0) header.classList.add('transparent');
+
+  // Helper: open/close menu
+  function openMenu() {
+    header.classList.add('menu-open');
+    pageBody.classList.add('menu-open');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    // show nav for mobile (CSS handles display via .menu-open)
+    // prevent background scroll
+    pageBody.style.overflow = 'hidden';
+    // focus first link for accessibility
+    const first = navList.querySelector('a');
+    if (first) first.focus();
   }
 
-  // Transparent only at very top
-  if (currentScrollY === 0) {
-    header.classList.add("transparent");
-  } else {
-    header.classList.remove("transparent");
+  function closeMenu() {
+    header.classList.remove('menu-open');
+    pageBody.classList.remove('menu-open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    pageBody.style.overflow = '';
+    // return focus to toggle
+    menuToggle.focus({ preventScroll: true });
   }
 
-  lastScrollY = currentScrollY;
-});
-
-// Initial state on load
-if (window.scrollY === 0) {
-  header.classList.add("transparent");
-}
-
-
-// Toggle mobile menu
-menuToggle.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden");
-});
-
-// Smooth scroll for nav links
-document.querySelectorAll("a[href^='#']").forEach(anchor => {
-  anchor.addEventListener("click", function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-    mobileMenu.classList.add("hidden");
+  // Toggle handler
+  menuToggle.addEventListener('click', function (e) {
+    const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+    if (isOpen) closeMenu(); else openMenu();
   });
+
+  // Close menu when a nav link is clicked (mobile)
+  navList.addEventListener('click', function (e) {
+    const target = e.target;
+    if (target.tagName === 'A' && window.matchMedia('(max-width: 767px)').matches) {
+      // allow navigation then close menu
+      closeMenu();
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' || e.key === 'Esc') {
+      const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+      if (isOpen) closeMenu();
+    }
+  });
+
+  // Close when clicking outside header while menu open
+  document.addEventListener('click', function (e) {
+    const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+    if (!isOpen) return;
+    // if click is outside header, close
+    if (!header.contains(e.target)) closeMenu();
+  });
+
+  // Smooth scroll for internal links and ensure menu closes
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (ev) {
+      const href = this.getAttribute('href');
+      if (!href || href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        ev.preventDefault();
+        // close menu first on mobile so header state is correct
+        if (menuToggle.getAttribute('aria-expanded') === 'true') closeMenu();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Header show/hide on scroll (but do not hide while menu is open)
+  window.addEventListener('scroll', function () {
+    const currentScrollY = window.scrollY || 0;
+    const menuIsOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+
+    // Show/hide header only when menu is closed
+    if (!menuIsOpen) {
+      if (currentScrollY === 0 || currentScrollY < lastScrollY) {
+        header.style.transform = 'translateY(0)';
+      } else {
+        header.style.transform = 'translateY(-100%)';
+      }
+    } else {
+      // ensure header visible when menu open
+      header.style.transform = 'translateY(0)';
+    }
+
+    // Transparent only at very top and only when menu is closed
+    if (currentScrollY === 0 && !menuIsOpen) {
+      header.classList.add('transparent');
+    } else {
+      header.classList.remove('transparent');
+    }
+
+    lastScrollY = currentScrollY;
+  }, { passive: true });
 });
+
 
 // Inspirational Quotes Rotator
 const quotes = [

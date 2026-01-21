@@ -12,37 +12,33 @@
 
 </head>
 <body>
-  <!-- Header -->
   <header id="main-header" class="header">
-    <nav class="nav-bar">
-      <img src="images/logo192.png" alt="Cyanide Towers" class="logo" />
-
-      <!-- Desktop Navigation -->
-      <ul class="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about-skills">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#certificates">Certificates</a></li>
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="#contact">Contact</a></li>
+    <nav class="nav-bar" aria-label="Primary navigation">
+      <a href="#hero" class="logo-link" aria-label="Home">
+        <img src="images/logo192.png" alt="Cyanide Towers" class="logo" />
+      </a>
+      <ul id="nav-list" class="nav-links" role="menubar">
+        <li role="none"><a role="menuitem" href="#hero">Home</a></li>
+        <li role="none"><a role="menuitem" href="#about-skills">About</a></li>
+        <li role="none"><a role="menuitem" href="#projects">Projects</a></li>
+        <li role="none"><a role="menuitem" href="#certificates">Certificates</a></li>
+        <li role="none"><a role="menuitem" href="#resume">Resume</a></li>
+        <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
       </ul>
       <!-- Mobile Hamburger -->
-      <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
-        &#9776;
+      <button
+        id="menu-toggle"
+        class="menu-toggle"
+        aria-controls="nav-list"
+        aria-expanded="false"
+        aria-label="Toggle menu"
+        type="button"
+      >
+        <span class="hamburger-icon" aria-hidden="true">&#9776;</span>
       </button>
     </nav>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="mobile-menu hidden" aria-hidden="true">
-      <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about-skills">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#certificates">Certificates</a></li>
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
   </header>
+
 
   <!-- Main wrapper with mist overlay (header and footer remain outside) -->
   <div class="main-wrapper">
@@ -104,7 +100,7 @@
         <div class="projects-grid">
           <div class="project-card">
             <a href="https://pinoy-pantry.web.app/" target="_blank" rel="noopener noreferrer">
-              <img src="/images/pinoy-pantry.png" alt="Pinoy Pantry" />
+              <img src="/images/pinoy-pantry.png" alt="Pinoy Pantry" loading="lazy" width="1200" height="800" />
             </a>
             <div class="project-info">
               <h3>Pinoy Pantry</h3>
@@ -114,7 +110,7 @@
 
           <div class="project-card">
             <a href="https://auth-boilerplate-2339d.web.app" target="_blank" rel="noopener noreferrer">
-              <img src="/images/rqgduck.png" alt="Ridiculous Quiz Game" />
+              <img src="/images/rqgduck.png" alt="Ridiculous Quiz Game" loading="lazy" width="1200" height="800" />
             </a>
             <div class="project-info">
               <h3>Ridiculous Quiz Game</h3>
@@ -124,7 +120,7 @@
 
           <div class="project-card">
             <a href="https://random-quote-generator-madcyans-projects.vercel.app/" target="_blank" rel="noopener noreferrer">
-              <img src="/images/quote.png" alt="Random Quote Generator" />
+              <img src="/images/quote.png" alt="Random Quote Generator" loading="lazy" width="1200" height="800" />
             </a>
             <div class="project-info">
               <h3>Random Quote Generator</h3>
@@ -134,7 +130,7 @@
 
           <div class="project-card">
             <a href="https://javascript-calculator-silk.vercel.app/" target="_blank" rel="noopener noreferrer">
-              <img src="/images/calculator.png" alt="Calculator" />
+              <img src="/images/calculator.png" alt="Calculator" loading="lazy" width="1200" height="800" />
             </a>
             <div class="project-info">
               <h3>Calculator</h3>
@@ -144,7 +140,7 @@
 
           <div class="project-card">
             <a href="https://drum-machine-livid.vercel.app/" target="_blank" rel="noopener noreferrer">
-              <img src="/images/drum.png" alt="Drum Machine" />
+              <img src="/images/drum.png" alt="Drum Machine" loading="lazy" width="1200" height="800" />
             </a>
             <div class="project-info">
               <h3>Drum Machine</h3>
@@ -154,7 +150,7 @@
 
           <div class="project-card">
             <a href="https://memory-matching-game-nine.vercel.app/" target="_blank" rel="noopener noreferrer">
-              <img src="/images/match.png" alt="Memory Matching Game" />
+              <img src="/images/match.png" alt="Memory Matching Game" loading="lazy" width="1200" height="800"/>
             </a>
             <div class="project-info">
               <h3>Memory Matching Game</h3>
