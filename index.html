@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="images/favicon.ico" />
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Revalia&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quantico&display=swap">
+
+</head>
+<body>
+  <!-- Header -->
+  <header id="main-header" class="header">
+    <nav class="nav-bar">
+      <img src="images/logo192.png" alt="Cyanide Towers" class="logo" />
+
+      <!-- Desktop Navigation -->
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about-skills">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <!-- Mobile Hamburger -->
+      <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
+        &#9776;
+      </button>
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu hidden" aria-hidden="true">
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about-skills">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main wrapper with mist overlay (header and footer remain outside) -->
+  <div class="main-wrapper">
+    <div class="mist" aria-hidden="true"></div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-inner">
+            <h1>Hello, I'm <span class="highlight">Syan</span></h1>
+
+            <p>
+            <span class="role">Architect</span><br/>
+            <span class="turned">turned</span><br/>
+            <span class="aspiring">Aspiring Web Developer</span>
+            </p>
+        </div>
+
+        <div class="hero-footer">
+            <p>Just beginning my journey in coding, learning every day, and excited to build innovative digital experiences.</p>
+        </div>
+
+        <div class="hero-line" aria-hidden="true"></div>
+    </section>
+
+
+   <!-- About + Tech Stack (single column, vertically centered) -->
+<section id="about-skills" class="about-section">
+  <div class="about-container">
+    <h2 class="about-title">About Me</h2>
+
+    <p class="about-text">
+      I am a licensed architect with years of experience in design and construction.<br />
+      Now, I am channeling the same passion for creativity and problem solving into software development.<br /><br />
+      My goal is to combine my design expertise with modern code to build innovative digital solutions.
+    </p>
+
+    <!-- Shared black fade line -->
+    <div class="skills-line">
+      <ul class="skills-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>Node.js</li>
+        <li>Express</li>
+        <li>MongoDB</li>
+        <li>Tailwind</li>
+      </ul>
+      <h3 class="tech-title">Tech Stack</h3>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <div class="projects-container container">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <a href="https://pinoy-pantry.web.app/" target="_blank" rel="noopener noreferrer">
+              <img src="/images/pinoy-pantry.png" alt="Pinoy Pantry" />
+            </a>
+            <div class="project-info">
+              <h3>Pinoy Pantry</h3>
+              <p>Pinoy Dessert Pantry is a mobile-friendly app showcasing Filipino sweets with dynamic browsing and Firestore filtering.</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <a href="https://auth-boilerplate-2339d.web.app" target="_blank" rel="noopener noreferrer">
+              <img src="/images/rqgduck.png" alt="Ridiculous Quiz Game" />
+            </a>
+            <div class="project-info">
+              <h3>Ridiculous Quiz Game</h3>
+              <p>An engaging quiz game with Firebase auth, scores, audio effects, and playful duck-themed trivia.</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <a href="https://random-quote-generator-madcyans-projects.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <img src="/images/quote.png" alt="Random Quote Generator" />
+            </a>
+            <div class="project-info">
+              <h3>Random Quote Generator</h3>
+              <p>A sleek interactive app delivering motivational or humorous quotes at the click of a button.</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <a href="https://javascript-calculator-silk.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <img src="/images/calculator.png" alt="Calculator" />
+            </a>
+            <div class="project-info">
+              <h3>Calculator</h3>
+              <p>A simple yet elegant calculator with basic arithmetic operations and a user-friendly interface.</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <a href="https://drum-machine-livid.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <img src="/images/drum.png" alt="Drum Machine" />
+            </a>
+            <div class="project-info">
+              <h3>Drum Machine</h3>
+              <p>A fun interactive drum machine allowing users to create beats and rhythms with various sounds.</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <a href="https://memory-matching-game-nine.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <img src="/images/match.png" alt="Memory Matching Game" />
+            </a>
+            <div class="project-info">
+              <h3>Memory Matching Game</h3>
+              <p>A classic memory game enhanced with a weather API that updates background visuals dynamically.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificates" class="certificates-section">
+      <div class="container">
+        <h2 class="section-title">Certificates</h2>
+        <div class="certificate-carousel">
+          <div class="carousel-track"></div>
+          <div class="certificate-nav">
+            <button id="prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+            <button id="next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+      <!-- Thumbnails outside container -->
+      <div class="carousel-thumbs" id="carousel-thumbs"></div>
+    </section>
+
+
+
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume">
+      <div class="resume-container container">
+        <h2 class="section-title">Resume</h2>
+        <a href="/certificates/Torres-Syan-CV.pdf" target="_blank" class="resume-btn">DOWNLOAD RESUME</a>
+        <p>Check out and download my detailed resume.</p>
+      </div>
+    </section>
+
+   <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <h2>Contact Me</h2>
+      <div class="contact-options">
+
+        <!-- Messenger -->
+        <a href="https://m.me/TorresSyanVale" target="_blank" rel="noopener noreferrer" class="contact-item">
+          <img src="images/messenger.svg" alt="Messenger" class="icon-img" />
+          <span class="contact-text">Chat with me on Messenger!</span>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:torressyanvale@gmail.com" class="contact-item">
+          <img src="images/gmail.svg" alt="Email" class="icon-img" />
+          <span class="contact-text">torressyanvale@gmail.com</span>
+        </a>
+
+        <!-- Phone -->
+        <a href="tel:+639298172574" class="contact-item">
+          <img src="images/phone.svg" alt="Phone" class="icon-img" />
+          <span class="contact-text">+63 929 817 2574</span>
+        </a>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer (outside mist wrapper) -->
+  <footer class="footer">
+    <div class="social-links" aria-label="Social links">
+      <a href="https://www.facebook.com/TorresSyanVale" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <img src="/images/facebook.svg" alt="Facebook" />
+      </a>
+      <a href="https://www.linkedin.com/in/syan-torres-2bb93028b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <img src="/images/linkedin.svg" alt="LinkedIn" />
+      </a>
+      <a href="https://github.com/madcyans" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <img src="/images/github.svg" alt="GitHub" />
+      </a>
+    </div>
+
+    <div id="quote-box-wrapper" class="quote-box-wrapper">
+      <div id="quote-box" class="quote-box">
+        <div id="quote-text-container">
+          <p id="text" class="quote-text"></p>
+          <p id="author" class="quote-author"></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
